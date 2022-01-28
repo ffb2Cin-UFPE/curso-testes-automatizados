@@ -16,11 +16,12 @@ class Page {
   button: any;
   
   constructor(component: any) {
-    this.appElements = component.getElement().props.children;
-    this.input = this.appElements.find((el: { type: string; }) => el.type === 'input');
+    this.appElements = (component.getElement().props.children);
     this.header = this.appElements.find((el: { type: string; }) => el.type === 'header');
-    this.button = this.appElements.find((el: { type: string; }) => el.type === 'a');
-  
+    this.input = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'input');
+    this.button = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'a');
+    
+    
   }
 }
 
@@ -42,6 +43,7 @@ describe('Test page object', () => {
   const page = new Page(component);
 
   test('elements are created correctly', () => {
+    //console.log('ok',page.appElements[1].props)
     expect(page.input.props.id).toBe('input-skill');
     expect(page.input.props.className).toBe('input1');
     expect(page.header.props.className).toBe('App-header');
@@ -49,6 +51,7 @@ describe('Test page object', () => {
   
   test('buttons are created correctly', () => {
     expect(page.button.props.id).toBe('search-button');
+    //expect(page.button.props.id).toBe('add-skill-button')
   });
   
   test('elements are created correctly page object', () => {
