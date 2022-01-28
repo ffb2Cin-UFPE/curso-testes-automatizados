@@ -107,7 +107,7 @@ const App = () => {
         setSkillsData(skillItem ? [skillItem,...data]: data);
       });
   }
-  function OnSubmit(e: any) {
+  function OnSubmit(e: any) { //updated
     loadSkills(skillData);
     setShowSkills(true);
     setShowAddForm(false);

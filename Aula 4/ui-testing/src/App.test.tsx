@@ -15,12 +15,13 @@ class Page {
   header: any;
   button: any;
   
+
   constructor(component: any) {
     this.appElements = (component.getElement().props.children);
     this.header = this.appElements.find((el: { type: string; }) => el.type === 'header');
-    this.input = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'input');
-    this.button = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'a');
-    
+    this.input = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'input'); //fixed
+    this.button = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'a');    //fixed
+  
     
   }
 }
