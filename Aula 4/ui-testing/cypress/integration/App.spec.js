@@ -1,4 +1,3 @@
-
 describe('App Developers Skills', () => {
 
     beforeEach(() => {
@@ -10,6 +9,7 @@ describe('App Developers Skills', () => {
         cy.get('li').should('be.visible');
         cy.get('ul').should('be.visible');
     });
+
     it('should load one skill after input and click search button', () => {
         cy.get('input').type('front-end');
         cy.get('#search-button').click();
@@ -56,6 +56,7 @@ describe('App Developers Skills', () => {
             cy.get('#roles').select('Quality Assurance')
              cy.get('button[type="submit"').click();
     })
+
     it('Should Load a new Added Skill',() => {
         cy.get('#add-skill-button').click();
         cy.get('#skillName').type('Full Stack');
@@ -69,4 +70,5 @@ describe('App Developers Skills', () => {
         cy.contains('Roles:Quality Assurance')
        
     });
+
 })

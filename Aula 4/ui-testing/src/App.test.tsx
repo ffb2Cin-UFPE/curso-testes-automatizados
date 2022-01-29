@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import * as enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { findByTestAttribute } from "../test/utils/testUtils";
 
 enzyme.configure({ adapter: new Adapter() });
 
@@ -11,18 +12,25 @@ function setup() {
 
 class Page {
   appElements: any;
-  input: any;
+  div: any;
   header: any;
-  button: any;
-  
+  h1: any;
+  label: any;
+  inputSkill: any;
+  searchButton: any;
+  loadSkillsButton: any;
+  addSkillButton: any;
 
   constructor(component: any) {
     this.appElements = (component.getElement().props.children);
+    this.div = findByTestAttribute(component, "div-data-test-id");
     this.header = this.appElements.find((el: { type: string; }) => el.type === 'header');
-    this.input = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'input'); //fixed
-    this.button = this.appElements[1].props.children.find((el: { type: string; }) => el.type === 'a');    //fixed
-  
-    
+    this.h1 = findByTestAttribute(component, "h1-data-test-id");
+    this.label = findByTestAttribute(component, "label-data-test-id");
+    this.inputSkill = findByTestAttribute(component, "input-skill-data-test-id");
+    this.searchButton = findByTestAttribute(component, "search-button-data-test-id");
+    this.loadSkillsButton = findByTestAttribute(component, "load-skills-button-data-test-id");
+    this.addSkillButton = findByTestAttribute(component, "add-skill-button-data-test-id");
   }
 }
 
@@ -43,19 +51,30 @@ describe('Test page object', () => {
   const component = setup();
   const page = new Page(component);
 
-  test('elements are created correctly', () => {
-    //console.log('ok',page.appElements[1].props)
-    expect(page.input.props.id).toBe('input-skill');
-    expect(page.input.props.className).toBe('input1');
-    expect(page.header.props.className).toBe('App-header');
+  test('Div is created correctly', () => {
+    expect(page.div.exists()).toBe(true);
   });
-  
-  test('buttons are created correctly', () => {
-    expect(page.button.props.id).toBe('search-button');
-    //expect(page.button.props.id).toBe('add-skill-button')
+
+  test('Header is created correctly', () => {
+    expect(page.label.exists()).toBe(true);
   });
-  
-  test('elements are created correctly page object', () => {
-    expect(page.input.props.id).toBe('input-skill');
+
+  test('H1 is created correctly', () => {
+    expect(page.h1.exists()).toBe(true);
   });
+
+  test('Label is created correctly', () => {
+    expect(page.label.exists()).toBe(true);
+  });
+
+  test('Inputs are created correctly', () => {
+    expect(page.inputSkill.exists()).toBe(true);
+  });
+
+  test('Buttons are created correctly', () => {
+    expect(page.searchButton.exists()).toBe(true);
+    expect(page.loadSkillsButton.exists()).toBe(true);
+    expect(page.addSkillButton.exists()).toBe(true);
+  });
+
 });

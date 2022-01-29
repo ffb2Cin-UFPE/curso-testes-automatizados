@@ -131,20 +131,21 @@ const App = () => {
     setShowAddForm(true);
   }
   return (
-    <div className="App">
+    <div data-test-id="div-data-test-id" className="App">
       <header className="App-header">
-        <h1>Developers App</h1>
+        <h1 data-test-id="h1-data-test-id">Developers App</h1>
       </header>
       {!ShowAddForm ? (
         <>
-          <label htmlFor="input1">
+          <label data-test-id="label-data-test-id" htmlFor="input1">
             Type the skill you would like to search
           </label>
-          <input id="input-skill" className="input1"></input>
-          <a id="search-button" className="button1" onClick={() => loadSkill()}>
+          <input data-test-id="input-skill-data-test-id" id="input-skill" className="input1"></input>
+          <a data-test-id="search-button-data-test-id" id="search-button" className="button1" onClick={() => loadSkill()}>
             Search
           </a>
           <a
+            data-test-id="load-skills-button-data-test-id"
             id="load-skills-button"
             className="button1"
             onClick={() => loadSkills()}
@@ -152,6 +153,7 @@ const App = () => {
             All Skills
           </a>
           <a
+            data-test-id="add-skill-button-data-test-id"
             id="add-skill-button"
             className="button1"
             onClick={HandleClickAddBtn}
@@ -207,7 +209,7 @@ const App = () => {
               <option value="UI/UX_Designer">UI/UX Designer</option>
             </select>
           </body>
-          <button type="submit">Add Skills </button>
+          <button type="submit" >Add Skills </button>
         </form>
       )}
     </div>
