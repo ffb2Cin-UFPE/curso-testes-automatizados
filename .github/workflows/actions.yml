@@ -25,15 +25,15 @@ jobs:
           node-version: 16.x
           cache: npm
 
-      - working-directory: ./Aula 4/client
+      - working-directory: /Aula 4/ui-testing/client
         run: npm install
-      - working-directory: ./Aula 4/client
+      - working-directory: /Aula 4/ui-testing/client
         run: npm run test
-      - working-directory: ./Aula 4/client
+      - working-directory: /Aula 4/ui-testing/client
         run: npm run build
-      - working-directory: ./Aula 4/server
+      - working-directory: /Aula 4/ui-testing/server
         run: npm install
-      - working-directory: ./Aula 4/server
+      - working-directory: /Aula 4/ui-testing/server
         run: npm run test
   cypress-run:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ./Users/vntfaba/Desktop/Curso-testes-automatizados_FORK/curso-testes-automatizados/Aula 4/ui-testing/
+          working-directory: ./Aula 4/ui-testing
           build: npm run build
           start: npm start
 
