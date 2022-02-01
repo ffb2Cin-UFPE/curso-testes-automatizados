@@ -43,7 +43,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ./Aula 4/ui-testing/src
+          working-directory: ./Users/vntfaba/Desktop/Curso-testes-automatizados_FORK/curso-testes-automatizados/Aula 4/ui-testing/
           build: npm run build
           start: npm start
 
