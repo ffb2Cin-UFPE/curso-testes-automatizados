@@ -9,7 +9,7 @@ on: [push]
   #    - main
   #   - releases/*
   # paths-ignore:
-  #   - '**.md'
+  #   - '**.md' 
 
 jobs:
   build:
