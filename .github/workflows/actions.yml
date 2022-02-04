@@ -24,17 +24,7 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-      
-      - working-directory: ./Aula 5/client
-        run: npm install
-      - working-directory: ./Aula 5/client
-        run: npm run test
-      - working-directory: ./Aula 5/client
-        run: npm run build
-      - working-directory: ./Aula 5/server
-        run: npm install
-      - working-directory: ./Aula 5/server
-        run: npm run test
+          
   cypress-run:
     runs-on: ubuntu-latest
     steps:
